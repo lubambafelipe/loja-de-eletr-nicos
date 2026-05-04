@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BICAPE-TECH">
+    <title>BUCAPE-TECH</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Topbar -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-content">
+                <div class="topbar-left">
+                    <a href="#" class="topbar-logo">BUCAPE-TECH</a>
+                    
+                </div>
+                <div class="topbar-right">
+                    <a href="#" class="topbar-link">Facebook</a>
+                    <a href="#" class="topbar-link">Twitter</a>
+                    <a href="#" class="topbar-link">Instagram</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="header-content">
+                    <button class="icon-btn menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <!-- Navigation -->
+                    <nav class="nav">
+                        <ul class="nav-list">
+                            <li><a href="#home" class="nav-link active">LAR</a></li>
+                            <li><a href="#about" class="nav-link">SOBRE NÓS</a></li>
+                            <li><a href="#products" class="nav-link">COMPRAR </a></li>
+                            <li><a href="comprar/index.html" class="nav-link">PÁGINAS </a></li>
+                            <li><a href="#contact" class="nav-link">CONTATE-NOS</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <!-- Right Icons -->
+                    <div class="header-icons">
+                        <button class="icon-btn search-btn" id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button class="icon-btn cart-btn" id="cartBtn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-list">
+            <li><a href="#home" class="mobile-nav-link">HOME</a></li>
+            <li><a href="#about" class="mobile-nav-link">SOBRE NÓS</a></li>
+            <li><a href="#products" class="mobile-nav-link">COMPRAR</a></li>
+            <li><a href="#pages" class="mobile-nav-link">PÁGINAS</a></li>
+            <li><a href="#contact" class="mobile-nav-link">CONTATE-NOS</a></li>
+        </ul>
+    </div>
+
+    <!-- Desktop Sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <aside class="desktop-sidebar" id="desktopSidebar">
+        <div class="sidebar-header">
+            <span class="sidebar-title">Explorar Loja</span>
+            <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+        </div>
+
+        <!-- Pesquisa rápida -->
+        <div class="sidebar-search">
+            <i class="fas fa-search sidebar-search-icon"></i>
+            <input type="text" placeholder="Pesquisar produtos…" class="sidebar-search-input" id="sidebarSearchInput">
+        </div>
+
+        <!-- Categorias -->
+        <div class="sidebar-section">
+            <p class="sidebar-section-label">Categorias</p>
+            <ul class="sidebar-cat-list">
+                <li><a href="#products" class="sidebar-cat-link sidebar-cat-all active-cat" data-cat="all">
+                    <i class="fas fa-th-large"></i> Todos os Produtos <span class="sidebar-cat-count">16</span>
+                </a></li>
+                <li><a href="#products" class="sidebar-cat-link" data-cat="audio">
+                    <i class="fas fa-headphones"></i> Áudio <span class="sidebar-cat-count">6</span>
+                </a></li>
+                <li><a href="#products" class="sidebar-cat-link" data-cat="perifericos">
+                    <i class="fas fa-keyboard"></i> Periféricos <span class="sidebar-cat-count">5</span>
+                </a></li>
+                <li><a href="#products" class="sidebar-cat-link" data-cat="monitores">
+                    <i class="fas fa-desktop"></i> Monitores <span class="sidebar-cat-count">2</span>
+                </a></li>
+                <li><a href="#products" class="sidebar-cat-link" data-cat="componentes">
+                    <i class="fas fa-microchip"></i> Componentes <span class="sidebar-cat-count">3</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <!-- Ofertas -->
+        <div class="sidebar-section">
+            <p class="sidebar-section-label">Destaques</p>
+            <ul class="sidebar-cat-list">
+                <li><a href="#products" class="sidebar-cat-link" data-cat="sale">
+                    <i class="fas fa-tag"></i> Em Promoção <span class="sidebar-cat-count sidebar-cat-count--sale">6</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <!-- Links rápidos -->
+        <div class="sidebar-section">
+            <p class="sidebar-section-label">Navegação</p>
+            <ul class="sidebar-nav-list">
+                <li><a href="#home"     class="sidebar-nav-link"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="#about"    class="sidebar-nav-link"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+                <li><a href="#brands"   class="sidebar-nav-link"Z><i class="fas fa-star"></i> Marcas</a></li>
+                <li><a href="#contact"  class="sidebar-nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </div>
+
+        <!-- Rodapé do sidebar -->
+        <div class="sidebar-footer">
+            <p><i class="fas fa-shield-alt"></i> Compra Segura Garantida</p>
+            <p><i class="fas fa-truck"></i> Entrega em Luanda</p>
+        </div>
+    </aside>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" style="position:relative;">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text">
+                        <div class="hero-badge" id="heroBadge">Intel Core</div>
+                        <h2 class="hero-title" id="heroTitle">Legion Pro 7i</h2>
+                        <div class="hero-specs" id="heroSpecs">
+                            <div class="hero-spec-item"><span class="spec-label">CPU</span><span class="spec-val">Intel Core i9-14900HX</span></div>
+                            <div class="hero-spec-item"><span class="spec-label">GPU</span><span class="spec-val">NVIDIA RTX 4080</span></div>
+                            <div class="hero-spec-item"><span class="spec-label">RAM</span><span class="spec-val">64 GB DDR5</span></div>
+                            <div class="hero-spec-item"><span class="spec-label">Storage</span><span class="spec-val">2TB NVMe Gen4</span></div>
+                        </div>
+                        <p class="hero-subtitle" id="heroSubtitle">Desempenho extremo para gaming e criação de conteúdo profissional.</p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary">COMPRE AQUI</button>
+                        </div>
+                    </div>
+                    <div class="hero-image" id="heroImageWrap">
+                        <img src="Nova pasta/baixados__8_-removebg-preview.png" id="heroImg" alt="PC" style="filter: drop-shadow(0 30px 60px rgba(0,0,30,0.4));">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Dots centralizados no fundo -->
+        <div class="hero-dots-bottom" id="heroDots"></div>
+    </section>
+
+ 
+
+    <!-- Brand Products Modal -->
+    <div class="brand-modal-overlay" id="brandModalOverlay">
+        <div class="brand-modal" id="brandModal">
+            <div class="brand-modal-header">
+                <div class="brand-modal-title-wrap">
+                    <span class="brand-modal-logo" id="brandModalLogo"></span>
+                    <div>
+                        <h3 id="brandModalName"></h3>
+                        <p id="brandModalCount"></p>
+                    </div>
+                </div>
+                <button class="brand-modal-close" id="brandModalClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="brand-modal-body">
+                <div class="brand-products-grid" id="brandProductsGrid"></div>
+                <div class="brand-empty" id="brandEmpty" style="display:none;">
+                    <i class="fas fa-box-open"></i>
+                    <p>Nenhum produto disponível para esta marca de momento.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promotional Banners -->
+    <section class="promo-banners">
+        <div class="container">
+            <div class="banners-grid">
+                <div class="banner" style="background-image: url(Nova\ pasta/Capturar.PNG);">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <h3>Catalyst 9300</h3>
+                        <p class="banner-discount">50% OFF</p>
+                        <button class="btn btn-light">COMPRE AGORA</button>
+                    </div>
+                </div>
+                <div class="banner" style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663623387720/BKsbXPQ9bKwE9EPiv44ALg/promo-banner-discount-3vhAYypKcjMh6r4SRN9i4i.webp');">
+                    <div class="banner-overlay"></div>
+                    <div class="banner-content">
+                        <h3>FONE PREMIUM</h3>
+                        <p class="banner-discount">50% OFF</p>
+                        <button class="btn btn-light">COMPRE AGORA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>OFERTAS QUENTES DA SEMANA</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be inserted by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Textured Showcase -->
+    <section class="textured-showcase">
+        <div class="showcase-overlay"></div>
+        <div class="container">
+            <div class="showcase-grid">
+                <div class="showcase-image">
+                    <img src="Nova pasta/Capturar-removebg-preview.png" alt="Headset Premium">
+                </div>
+                <div class="showcase-content">
+                    <h2>CANCELAMENTO DE RUÍDO ATIVO</h2>
+                    <p>Tecnologia avançada que elimina até 99% do ruído ambiente. Perfeito para trabalho, viagens e momentos de concentração.</p>
+                    <div class="showcase-price">
+                        <span class="price">129.999 Kz</span>
+                        <button class="btn btn-light">SAIBA MAIS</button>
+                    </div>
+                    <div class="showcase-features">
+                        <div class="feature">
+                            <p class="feature-label">Cancelamento</p>
+                            <p class="feature-value">Ruído Ativo Avançado</p>
+                        </div>
+                        <div class="feature">
+                            <p class="feature-label">Duração</p>
+                            <p class="feature-value">Até 48 horas</p>
+                        </div>
+                        <div class="feature">
+                            <p class="feature-label">Qualidade</p>
+                            <p class="feature-value">Som Hi-Fi Premium</p>
+                        </div>
+                        <div class="feature">
+                            <p class="feature-label">Conexão</p>
+                            <p class="feature-value">Bluetooth 5.3</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>ÚLTIMAS NOTÍCIAS</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be inserted by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands-section" id="brands">
+        <div class="container">
+            <div class="section-header">
+                <h2>MARCAS</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="brands-carousel-wrap">
+                <button class="brands-nav brands-prev" id="brandsPrev" aria-label="Anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="brands-viewport" id="brandsViewport">
+                    <div class="brands-track" id="brandsTrack"></div>
+                </div>
+                <button class="brands-nav brands-next" id="brandsNext" aria-label="Próximo">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Company Info -->
+                <div class="footer-column">
+                    <h4>BICAPE-TECH</h4>
+                    <p>Líder em tecnologia de áudio premium. Produtos de alta qualidade com garantia e suporte excepcional.</p>
+                    <div class="footer-info">
+                        <p><strong>Endereço:</strong>Angola,Luanda</p>
+                        <p><strong>Horário:</strong> Seg-Sex: 9h-18h</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Pages -->
+                <div class="footer-column">
+                    <h4>PÁGINAS</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#products">Loja</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div class="footer-column">
+                    <h4>LINKS RÁPIDOS</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Rastreamento de Pedido</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Garantia</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Newsletter -->
+                <div class="footer-column">
+                    <h4>BOLETIM DE NOTÍCIAS</h4>
+                    <p>Receba as últimas novidades e promoções exclusivas</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Seu email" class="newsletter-input">
+                        <button class="newsletter-btn"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="payment-methods">
+                        <span>Métodos de Pagamento:</span>
+                        <span class="payment-badge">Visa</span>
+                        <span class="payment-badge">Mastercard</span>
+                        <span class="payment-badge">PayPal</span>
+                        <span class="payment-badge">Express</span>
+                    </div>
+                    <p>&copy; 2025 BUCAPE-TECH. Todos os direitos reservados. 🇦🇴</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+ 
+<script src="main.js"></script>
+
+</body>
+</html>
