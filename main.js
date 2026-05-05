@@ -975,15 +975,80 @@ function heroRender(pc, animate) {
 function heroGoTo(idx) {
     if (heroAnimating || idx === heroCur) return;
     heroAnimating = true;
+
+    const hero    = document.querySelector('.hero');
+    const topbar  = document.querySelector('.topbar');
+    const header  = document.querySelector('.header');
     const imgWrap = document.getElementById('heroImageWrap');
-    imgWrap.classList.remove('hero-slide-in','hero-slide-out');
-    void imgWrap.offsetWidth;
+
+    // 1) Animar saída apenas da imagem
+    imgWrap.classList.remove('hero-slide-in', 'hero-slide-out');
+    void imgWrap.offsetWidth; // reflow para reiniciar animação
+
+    // Fade out do texto também
+    const titleEl = document.getElementById('heroTitle');
+    const specsEl = document.getElementById('heroSpecs');
+    titleEl.style.transition = 'opacity 0.25s ease';
+    specsEl.style.transition = 'opacity 0.25s ease';
+    titleEl.style.opacity = '0';
+    specsEl.style.opacity = '0';
+
     imgWrap.classList.add('hero-slide-out');
+
+    // 2) SÓ depois da animação de saída terminar: troca tema + conteúdo
     setTimeout(() => {
         heroCur = idx;
-        heroRender(pcs[heroCur], true);
+        const pc = pcs[heroCur];
+
+        // Troca o tema agora (imagem já saiu)
+        hero.className    = 'hero bg-' + pc.type;
+        topbar.className  = 'topbar bg-' + pc.type;
+        header.className  = 'header bg-' + pc.type;
+
+        // Atualiza conteúdo de texto
+        document.getElementById('heroBadge').textContent    = pc.badge;
+        document.getElementById('heroTitle').textContent    = pc.name;
+        document.getElementById('heroSubtitle').textContent = pc.subtitle;
+        document.getElementById('heroImg').src              = pc.img;
+        document.getElementById('heroImg').alt              = pc.name;
+
+        specsEl.innerHTML = pc.specs.map(s =>
+            `<div class="hero-spec-item">
+                <span class="spec-label">${s.label}</span>
+                <span class="spec-val">${s.val}</span>
+            </div>`
+        ).join('');
+
+        // Atualiza dots
+        const dotsEl = document.getElementById('heroDots');
+        dotsEl.innerHTML = '';
+        pcs.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'hero-dot' + (i === heroCur ? ' active' : '');
+            d.onclick = () => heroGoTo(i);
+            dotsEl.appendChild(d);
+        });
+
+        // 3) Anima entrada
+        imgWrap.classList.remove('hero-slide-in', 'hero-slide-out');
+        void imgWrap.offsetWidth;
+        imgWrap.classList.add('hero-slide-in');
+
+        // Restaura texto com fade-in
+        titleEl.style.transition = '';
+        specsEl.style.transition = '';
+        titleEl.style.opacity    = '';
+        specsEl.style.opacity    = '';
+
+        titleEl.classList.remove('hero-fade-in');
+        specsEl.classList.remove('hero-fade-in');
+        void titleEl.offsetWidth;
+        titleEl.classList.add('hero-fade-in');
+        specsEl.style.animationDelay = '0.1s';
+        specsEl.classList.add('hero-fade-in');
+
         setTimeout(() => { heroAnimating = false; }, 450);
-    }, 280);
+    }, 300); // espera a slide-out (0.3s) terminar completamente
 }
 
 document.addEventListener('DOMContentLoaded', () => {

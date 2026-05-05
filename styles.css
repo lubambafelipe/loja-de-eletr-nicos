@@ -139,7 +139,7 @@ p {
 .topbar {
     background-color: var(--primary);
     padding: 0.75rem 0;
-    transition: background 0.7s ease;
+    /* transition: background removido — muda junto com o hero após slide-out */
 }
 
 .topbar.bg-intel  { background-color: #1a39c2; }
@@ -198,7 +198,7 @@ p {
     top: 0;
     z-index: 100;
     padding: 0 0 0.85rem;
-    transition: background 0.7s ease;
+    /* transition: background removido — muda junto com o hero após slide-out */
 }
 
 .header.bg-intel  { background-color: #1a39c2; }
@@ -1246,7 +1246,7 @@ p {
 
 /* ========== HERO CAROUSEL ========== */
 .hero {
-    transition: background 0.7s ease;
+    /* transition: background — removido; gradientes não transitam entre si nos browsers */
 }
 .hero.bg-intel  { background-color: #1a39c2; }
 .hero.bg-ryzen  { background: linear-gradient(135deg, #1a0000 0%, #7a1010 30%, #c44010 65%, #e85010 100%); }
