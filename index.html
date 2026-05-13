@@ -17,6 +17,7 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="detalhes/product-modal.css">
 </head>
 <body>
     <!-- Topbar -->
@@ -49,7 +50,7 @@
                     <nav class="nav">
                         <ul class="nav-list">
                             <li><a href="#home" class="nav-link active">LAR</a></li>
-                            <li><a href="#about" class="nav-link">SOBRE NÓS</a></li>
+                            <li><a href="about us/index.html" class="nav-link">SOBRE NÓS</a></li>
                             <li><a href="comprar/index.html" class="nav-link">COMPRAR </a></li>
                             <li><a href="comprar/index.html" class="nav-link">PÁGINAS </a></li>
                             <li><a href="#contact" class="nav-link">CONTATE-NOS</a></li>
@@ -201,6 +202,19 @@
         </div>
     </div>
 
+    <!-- Novidades da Semana -->
+    <section class="novidades-section" id="novidades">
+        <div class="container">
+            <div class="novidades-header">
+                <h2>As Novidades da Semana</h2>
+                <a href="comprar/index.html" class="novidades-more-btn">Mais Produtos <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="novidades-grid" id="novidadesGrid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
     <!-- Promotional Banners -->
     <section class="promo-banners">
         <div class="container">
@@ -241,37 +255,19 @@
     <!-- Textured Showcase -->
     <section class="textured-showcase">
         <div class="showcase-overlay"></div>
-        <div class="container">
-            <div class="showcase-grid">
-                <div class="showcase-image">
-                    <img src="Nova pasta/Capturar-removebg-preview.png" alt="Headset Premium">
+        <div class="showcase-grid">
+            <div class="showcase-image">
+                <img src="Nova pasta/Capturar-removebg-preview.png" alt="Headset Premium">
+            </div>
+            <div class="showcase-content" >
+                <h2>CANCELAMENTO DE RUÍDO ATIVO</h2>
+                <div class="showcase-price-line">
+                    <span class="showcase-price-label">COMEÇAR DE</span>
+                    <span class="showcase-price-value">129.999 Kz</span>
                 </div>
-                <div class="showcase-content">
-                    <h2>CANCELAMENTO DE RUÍDO ATIVO</h2>
-                    <p>Tecnologia avançada que elimina até 99% do ruído ambiente. Perfeito para trabalho, viagens e momentos de concentração.</p>
-                    <div class="showcase-price">
-                        <span class="price">129.999 Kz</span>
-                        <button class="btn btn-light">SAIBA MAIS</button>
-                    </div>
-                    <div class="showcase-features">
-                        <div class="feature">
-                            <p class="feature-label">Cancelamento</p>
-                            <p class="feature-value">Ruído Ativo Avançado</p>
-                        </div>
-                        <div class="feature">
-                            <p class="feature-label">Duração</p>
-                            <p class="feature-value">Até 48 horas</p>
-                        </div>
-                        <div class="feature">
-                            <p class="feature-label">Qualidade</p>
-                            <p class="feature-value">Som Hi-Fi Premium</p>
-                        </div>
-                        <div class="feature">
-                            <p class="feature-label">Conexão</p>
-                            <p class="feature-value">Bluetooth 5.3</p>
-                        </div>
-                    </div>
-                </div>
+                <p>Novo lançamento de fone de ouvido sem fio da SoundPro Sound Technology. Usando Bluetooth 5.0, Noice Canceling e tecnologia APTX para proporcionar uma boa experiência ao ouvir música.</p>
+                  <a href="comprar/index.html" class="" >
+                <button class="showcase-cta-btn">COMPRE AQUI</button></a>
             </div>
         </div>
     </section>
@@ -386,6 +382,7 @@
     <!-- Scripts -->
  <script src="page-transition.js"></script>
 <script src="main.js"></script>
-
+ <script src="detalhes/product-modal.js"></script>
+ <script src="detalhes/product-specs.js"></script>
 </body>
 </html>
