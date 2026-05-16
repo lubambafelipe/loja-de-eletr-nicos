@@ -10,836 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="../styles.css">
+       <link rel="stylesheet" href="styles.css">
 
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-    :root {
-      --primary:       #1e40af;
-      --primary-light: #3b82f6;
-      --accent:        #06b6d4;
-      --background:    #ffffff;
-      --foreground:    #1a1a1a;
-      --muted:         #6b7280;
-      --border:        #e5e7eb;
-      --light-bg:      #f9fafb;
-      --font-display:  'Montserrat', sans-serif;
-      --font-body:     'Roboto', sans-serif;
-      --shadow-sm:     0 1px 2px rgba(0,0,0,.05);
-      --shadow-md:     0 4px 6px rgba(0,0,0,.1);
-      --shadow-lg:     0 10px 15px rgba(0,0,0,.1);
-      --shadow-xl:     0 20px 25px rgba(0,0,0,.15);
-      --transition:    all 0.3s ease;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--foreground);
-      background: var(--background);
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    /* ─── TOPBAR ─── */
-    .topbar {
-      background-color: var(--primary);
-      padding: 0.75rem 0;
-    }
-    .topbar-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .topbar-logo {
-      font-family: var(--font-display);
-      font-size: 1.75rem;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: 0.12em;
-      text-decoration: none;
-    }
-    .topbar-right {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .topbar-link {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: var(--transition);
-    }
-    .topbar-link:hover { color: #fff; text-decoration: underline; }
-    @media (max-width: 480px) {
-      .topbar-logo { font-size: 1.25rem; }
-      .topbar-right { gap: 0.75rem; }
-    }
-    @media (max-width: 360px) { .topbar-right { display: none; } }
-
-    /* ─── HEADER / NAVBAR ─── */
-    .header {
-      background-color: var(--primary);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 0 0 0.85rem;
-    }
-    .header-inner {
-      background-color: #fff;
-      border-radius: 50px;
-      box-shadow: 0 4px 6px rgba(0,0,0,.1);
-      padding: 0.65rem 1.75rem;
-    }
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-    }
-    .nav {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .nav-list {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-    .nav-link {
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--foreground);
-      text-decoration: none;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      padding: 0.25rem 0;
-      position: relative;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--primary);
-      transition: var(--transition);
-    }
-    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-    .nav-link:hover, .nav-link.active { color: var(--primary); }
-    .header-icons {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .icon-btn {
-      background: none;
-      border: none;
-      font-size: 1.25rem;
-      color: var(--foreground);
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-    }
-    .icon-btn:hover { color: var(--primary); }
-    .cart-count {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background-color: #06b6d4;
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-    }
-    @media (max-width: 768px) {
-      .nav { display: none; }
-      .header-inner { padding: 0.65rem 1rem; }
-    }
-
-    /* ─── HERO AZUL (igual ao header/hero do site) ─── */
-    .about-hero {
-      background-color: var(--primary);
-      padding: 5rem 0 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 28px 28px;
-      pointer-events: none;
-    }
-
-    .about-hero-inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-hero-text { color: #fff; }
-
-    .about-eyebrow {
-      display: inline-block;
-      padding: 4px 14px;
-      border-radius: 20px;
-      border: 1.5px solid rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.9);
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-hero-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4.5vw, 3.4rem);
-      font-weight: 900;
-      line-height: 1.1;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      color: #fff;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-hero-title span {
-      display: block;
-      font-size: 0.45em;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 0.3em;
-    }
-
-    .about-hero-desc {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.82);
-      line-height: 1.75;
-      max-width: 440px;
-      margin-bottom: 2rem;
-      font-weight: 300;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .hero-stat-item {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 10px;
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .hero-stat-num {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1;
-    }
-
-    .hero-stat-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-    }
-
-    .about-hero-visual {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-card-3d {
-      width: 100%;
-      max-width: 380px;
-      background: #fff;
-      border-radius: 16px;
-      padding: 2.2rem;
-      box-shadow: 0 32px 80px rgba(0,0,30,0.35);
-      transform-style: preserve-3d;
-      transform: perspective(800px) rotateY(-6deg) rotateX(3deg);
-      transition: transform 0.5s ease;
-    }
-
-    .hero-card-3d:hover {
-      transform: perspective(800px) rotateY(0deg) rotateX(0deg);
-    }
-
-    .hc-logo {
-      font-family: var(--font-display);
-      font-size: 1.25rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-
-    .hc-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .hc-list li {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: var(--font-display);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--foreground);
-    }
-
-    .hc-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: #eff6ff;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-
-    .hc-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 1.4rem 0;
-    }
-
-    .hc-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: #eff6ff;
-      color: var(--primary);
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      border: 1.5px solid #bfdbfe;
-    }
-
-    /* ─── SECÇÃO: MISSÃO ─── */
-    .about-mission {
-      padding: 5rem 0;
-      background: var(--background);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .section-label {
-      font-family: var(--font-display);
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--primary);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-      max-width: 60px;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      color: var(--foreground);
-      line-height: 1.2;
-      margin-bottom: 1.25rem;
-    }
-
-    .section-title strong { color: var(--primary); }
-
-    .section-body {
-      font-size: 0.97rem;
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 520px;
-    }
-
-    .section-divider {
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      margin: 1.5rem 0 2rem;
-      border-radius: 99px;
-    }
-
-    .mission-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .mission-img-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .mission-img-box {
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      background: var(--light-bg);
-      border: 1px solid var(--border);
-    }
-
-    .mission-img-box:first-child {
-      grid-column: 1 / -1;
-      aspect-ratio: 16/7;
-    }
-
-    .mission-img-box:not(:first-child) { aspect-ratio: 1; }
-
-    .mission-img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .mission-img-box:hover img { transform: scale(1.04); }
-
-    .img-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: var(--muted);
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      min-height: 160px;
-    }
-
-    .img-placeholder i { font-size: 1.8rem; color: var(--border); }
-
-    /* ─── SECÇÃO: VALORES ─── */
-    .about-values {
-      padding: 5rem 0;
-      background: var(--light-bg);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .values-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .values-header .section-label {
-      justify-content: center;
-    }
-
-    .values-header .section-label::after { display: none; }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .value-card {
-      background: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem 1.75rem;
-      transition: opacity .6s ease, transform .6s cubic-bezier(0.16,1,0.3,1), box-shadow .3s ease, border-color .3s ease;
-      opacity: 0;
-      transform: translateY(40px) rotateX(12deg);
-      transform-origin: center bottom;
-      transform-style: preserve-3d;
-    }
-
-    .value-card.is-visible {
-      opacity: 1;
-      transform: translateY(0) rotateX(0deg);
-    }
-
-    .value-card:hover {
-      box-shadow: var(--shadow-xl);
-      border-color: var(--primary-light);
-      transform: translateY(-6px) rotateX(0deg) !important;
-    }
-
-    .vc-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 10px;
-      background: #eff6ff;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      margin-bottom: 1.25rem;
-      transition: var(--transition);
-    }
-
-    .value-card:hover .vc-icon {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .vc-title {
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--foreground);
-      margin-bottom: 0.6rem;
-    }
-
-    .vc-body {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    /* ─── SECÇÃO: EQUIPA ─── */
-    .about-team {
-      padding: 5rem 0;
-      background: var(--background);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .team-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 3rem;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-
-    .team-card {
-      background: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: center;
-      transition: opacity .6s ease, transform .6s cubic-bezier(0.16,1,0.3,1), box-shadow .3s ease, border-color .3s ease;
-      opacity: 0;
-      transform: translateY(50px) rotateY(15deg);
-      transform-style: preserve-3d;
-    }
-
-    .team-card.is-visible {
-      opacity: 1;
-      transform: translateY(0) rotateY(0deg);
-    }
-
-    .team-card:hover {
-      box-shadow: var(--shadow-xl);
-      border-color: var(--primary-light);
-      transform: translateY(-6px) rotateY(0deg) !important;
-    }
-
-    .team-avatar {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: #e5e7eb;
-      overflow: hidden;
-      display: block;
-    }
-
-    .team-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      display: block;
-      transition: transform 0.5s ease;
-    }
-
-    .team-card:hover .team-avatar img {
-      transform: scale(1.05);
-    }
-
-    .team-info {
-      padding: 1.1rem 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .team-name {
-      font-family: var(--font-display);
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--foreground);
-      margin-bottom: 0.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .team-role {
-      font-size: 0.78rem;
-      color: var(--primary);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    /* ─── SECÇÃO: CONTACTO ─── */
-    .about-contact {
-      padding: 5rem 0;
-      background: var(--light-bg);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .contact-info-box {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .contact-info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.25rem;
-      background: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      transition: var(--transition);
-    }
-
-    .contact-info-item:hover {
-      border-color: var(--primary-light);
-      box-shadow: var(--shadow-md);
-    }
-
-    .ci-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 8px;
-      background: #eff6ff;
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .ci-text strong {
-      font-family: var(--font-display);
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--foreground);
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-
-    .ci-text span {
-      font-size: 0.875rem;
-      color: var(--muted);
-    }
-
-    .contact-form-box {
-      background: var(--background);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      box-shadow: var(--shadow-md);
-      opacity: 0;
-      transform: translateX(40px) rotateY(-8deg);
-      transform-style: preserve-3d;
-      transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .contact-form-box.is-visible {
-      opacity: 1;
-      transform: translateX(0) rotateY(0deg);
-    }
-
-    .form-title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--foreground);
-      margin-bottom: 0.3rem;
-    }
-
-    .form-subtitle {
-      font-size: 0.875rem;
-      color: var(--muted);
-      margin-bottom: 1.75rem;
-    }
-
-    .form-group { margin-bottom: 1rem; }
-
-    .form-group label {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--foreground);
-      margin-bottom: 0.45rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      color: var(--foreground);
-      background: var(--background);
-      outline: none;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-      resize: none;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(30,64,175,0.1);
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: #d1d5db; }
-
-    .btn-submit {
-      width: 100%;
-      padding: 0.85rem;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-family: var(--font-display);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: var(--transition);
-      margin-top: 0.5rem;
-    }
-
-    .btn-submit:hover {
-      background: var(--primary-light);
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-2px);
-    }
-
-    /* ─── SCROLL REVEAL BASE ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 1024px) {
-      .values-grid { grid-template-columns: repeat(2, 1fr); }
-      .team-grid   { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 768px) {
-      .about-hero-inner  { grid-template-columns: 1fr; }
-      .about-hero-visual { display: none; }
-      .mission-grid      { grid-template-columns: 1fr; }
-      .contact-grid      { grid-template-columns: 1fr; gap: 2rem; }
-      .about-hero        { padding: 3.5rem 0 3rem; }
-      .about-mission, .about-values, .about-team, .about-contact { padding: 3rem 0; }
-    }
-
-    @media (max-width: 540px) {
-      .values-grid { grid-template-columns: 1fr; }
-      .team-grid   { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .hero-stats  { grid-template-columns: 1fr 1fr; }
-      .hero-stat-item:last-child { grid-column: 1 / -1; }
-      .mission-img-grid { grid-template-columns: 1fr; }
-      .mission-img-box:first-child { grid-column: 1; aspect-ratio: 16/9; }
-    }
-  </style>
 </head>
 <body>
 
@@ -847,9 +21,7 @@
 <div class="topbar">
   <div class="container">
     <div class="topbar-content">
-      <div class="topbar-left">
-        <a href="index.html" class="topbar-logo">BUCAPE-TECH</a>
-      </div>
+      <a href="index.html" class="topbar-logo">BUCAPE-TECH</a>
       <div class="topbar-right">
         <a href="#" class="topbar-link">Facebook</a>
         <a href="#" class="topbar-link">Twitter</a>
@@ -864,24 +36,18 @@
   <div class="container">
     <div class="header-inner">
       <div class="header-content">
-        <button class="icon-btn" aria-label="Menu">
-          <i class="fas fa-bars"></i>
-        </button>
-
+        <button class="icon-btn" id="menuToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
         <nav class="nav">
           <ul class="nav-list">
             <li><a href="../index.html" class="nav-link">Lar</a></li>
             <li><a href="#about" class="nav-link active">Sobre Nós</a></li>
-            <li><a href="index.html#shop" class="nav-link">Comprar</a></li>
+            <li><a href="../comprar/index.html" class="nav-link">Comprar</a></li>
             <li><a href="#" class="nav-link">Páginas</a></li>
             <li><a href="#contact" class="nav-link">Contate-Nos</a></li>
           </ul>
         </nav>
-
         <div class="header-icons">
-          <button class="icon-btn" aria-label="Pesquisar">
-            <i class="fas fa-search"></i>
-          </button>
+          <button class="icon-btn" aria-label="Pesquisar"><i class="fas fa-search"></i></button>
           <button class="icon-btn" aria-label="Carrinho">
             <i class="fas fa-shopping-cart"></i>
             <span class="cart-count">0</span>
@@ -892,121 +58,191 @@
   </div>
 </header>
 
-<!-- ── 1. HERO AZUL ── -->
+<!-- ── MOBILE MENU ── -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+  <ul class="mobile-nav-list">
+    <li><a href="../index.html" class="mobile-nav-link">HOME</a></li>
+    <li><a href="#about"       class="mobile-nav-link">SOBRE NÓS</a></li>
+    <li><a href="../comprar/index.html"            class="mobile-nav-link">COMPRAR</a></li>
+    <li><a href="#"            class="mobile-nav-link">PÁGINAS</a></li>
+    <li><a href="#contact"     class="mobile-nav-link">CONTATE-NOS</a></li>
+  </ul>
+</div>
+
+<!-- ── 1. HERO — IMAGEM A LARGURA TOTAL ── -->
 <section class="about-hero" id="about">
-  <div class="container">
-    <div class="about-hero-inner">
-      <div class="about-hero-text">
-        <div class="about-eyebrow">A Nossa História</div>
-        <h1 class="about-hero-title">
-          <span>Quem somos</span>
-          BUCAPE-TECH
-        </h1>
-        <p class="about-hero-desc">
-          Nascemos em Luanda com um propósito: trazer tecnologia premium ao alcance do consumidor angolano. Garantia real, entrega rápida e suporte que não desaparece.
-        </p>
-        <div class="hero-stats">
-          <div class="hero-stat-item">
-            <div class="hero-stat-num" data-target="5" data-suffix="+">0</div>
-            <div class="hero-stat-label">Anos de mercado</div>
-          </div>
-          <div class="hero-stat-item">
-            <div class="hero-stat-num" data-target="3200" data-suffix="+">0</div>
-            <div class="hero-stat-label">Clientes satisfeitos</div>
-          </div>
-          <div class="hero-stat-item">
-            <div class="hero-stat-num" data-target="16">0</div>
-            <div class="hero-stat-label">Produtos em catálogo</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-hero-visual">
-        <div class="hero-card-3d">
-          <div class="hc-logo">BUCAPE-TECH</div>
-          <ul class="hc-list">
-            <li><div class="hc-icon"><i class="fas fa-shield-alt"></i></div>Garantia em todos os produtos</li>
-            <li><div class="hc-icon"><i class="fas fa-truck"></i></div>Entrega em Luanda</li>
-            <li><div class="hc-icon"><i class="fas fa-headset"></i></div>Suporte pós-venda real</li>
-            <li><div class="hc-icon"><i class="fas fa-star"></i></div>Produtos de marcas premium</li>
-          </ul>
-          <div class="hc-divider"></div>
-          <span class="hc-tag"><i class="fas fa-map-marker-alt"></i> Angola, Luanda</span>
-        </div>
-      </div>
+  <div class="about-hero-bg"></div>
+  <div class="about-hero-content">
+    <h1>Sobre Nós</h1>
+    <p>Tecnologia premium ao alcance do consumidor angolano.</p>
+    <div class="hero-breadcrumb">
+      <i class="fas fa-home" style="font-size:0.7rem;"></i>
+      <a href="../index.html">Início</a>
+      <span>›</span>
+      <span style="color:rgba(255,255,255,0.9);">Sobre Nós</span>
     </div>
   </div>
 </section>
 
-<!-- ── 2. MISSÃO ── -->
-<section class="about-mission">
+<!-- ── 2. WE ARE BUCAPE-TECH — 2 colunas ── -->
+<section class="about-story">
   <div class="container">
-    <div class="mission-grid">
-      <div class="mission-img-grid">
-        <div class="mission-img-box">
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=600&h=400&fit=crop&auto=format" alt="Loja BUCAPE-TECH" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+    <div class="story-grid">
+
+      <!-- Texto esquerda -->
+      <div class="story-text reveal">
+        <div class="overline">A Nossa História</div>
+        <h2>We Are<br>BUCAPE-TECH</h2>
+        <div class="lead-quote">
+          "Nascemos em Luanda com um propósito: trazer tecnologia premium ao alcance do consumidor angolano."
         </div>
-        <div class="mission-img-box">
-          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&auto=format" alt="Equipa BUCAPE-TECH" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-        </div>
-        <div class="mission-img-box">
-          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop&auto=format" alt="Produtos BUCAPE-TECH" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+        <p>
+          A BUCAPE-TECH nasceu da convicção de que Angola merecia uma loja de tecnologia à altura das maiores do mundo. Desde 2020 entregamos áudio premium, periféricos, componentes e monitores com garantia  e suporte pós-venda.
+        </p>
+        <p>
+          Não somos apenas uma loja somos a ponte entre a tecnologia global e o consumidor angolano. Cada produto que colocamos em catálogo passou pela nossa avaliação criteriosa de qualidade, durabilidade e custo-benefício.
+        </p>
+        <div class="blockquote-accent">"QUALIDADE · CONFIANÇA · INOVAÇÃO"</div>
+        <p>
+          O nosso compromisso vai além da venda: garantimos entrega rápida em Luanda, suporte técnico especializado e um serviço que coloca o cliente sempre em primeiro lugar.
+        </p>
+        <div class="story-signature">
+          <div class="sig-line"></div>
+          <span>Carlos B. — CEO &amp; Fundador</span>
         </div>
       </div>
 
-      <div class="reveal">
-        <div class="section-label">Nossa Missão</div>
-        <h2 class="section-title">Tecnologia que<br><strong>transforma vidas</strong></h2>
-        <div class="section-divider"></div>
-        <p class="section-body">
-          A BUCAPE-TECH nasceu da convicção de que Angola merecia uma loja de tecnologia à altura das maiores do mundo. Desde 2020 entregamos áudio premium, periféricos, componentes e monitores com suporte real e garantia que cumpre.
-        </p>
-        <br>
-        <p class="section-body">
-          Não somos apenas uma loja — somos a ponte entre a tecnologia global e o consumidor angolano que exige qualidade. Cada produto que colocamos em prateleira passou pela nossa avaliação.
-        </p>
+      <!-- Foto direita -->
+      <div class="story-photo reveal">
+        <img
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&auto=format"
+          alt="CEO BUCAPE-TECH">
+        <div class="story-photo-badge">
+          <strong>5+</strong>
+          anos de mercado
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- ── 3. WHY CHOOSE US — imagem esquerda, features direita ── -->
+<section class="about-why">
+  <div class="why-grid">
 
-<!-- ── 4. EQUIPA ── -->
+    <!-- Imagem esquerda (sangra) -->
+    <div class="why-image">
+      <img
+        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=700&fit=crop&auto=format"
+        alt="Equipa BUCAPE-TECH">
+    </div>
+
+    <!-- Conteúdo direita -->
+    <div class="why-content reveal">
+      <h2>Why Choose Us</h2>
+      <p>
+        Trabalhamos todos os dias para garantir que cada cliente encontre o produto certo, com o melhor suporte e a melhor relação qualidade-preço do mercado angolano.
+      </p>
+      <div class="why-features">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="feature-text">
+            <strong>Garantia Total</strong>
+            <span>Todos os produtos com garantia oficial.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
+          <div class="feature-text">
+            <strong>Fácil de Personalizar</strong>
+            <span>Soluções adaptadas ao seu perfil.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <div class="feature-text">
+            <strong>Suporte 24/7</strong>
+            <span>Equipa disponível para apoio técnico.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-gift"></i></div>
+          <div class="feature-text">
+            <strong>Benefícios para Membros</strong>
+            <span>Programa de fidelidade com vantagens.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="feature-text">
+            <strong>Otimização</strong>
+            <span>Configurações e upgrades profissionais.</span>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+          <div class="feature-text">
+            <strong>Desenvolvimento</strong>
+            <span>Soluções tech para empresas.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── 4. MEET OUR TEAM ── -->
 <section class="about-team">
   <div class="container">
     <div class="team-header">
-      <div>
-        <div class="section-label">As pessoas por trás</div>
-        <h2 class="section-title">Nossa <strong>Equipa</strong></h2>
-      </div>
+      <h2>Meet Our Team</h2>
+      <p>We Are The Best Team</p>
     </div>
     <div class="team-grid">
-      <div class="team-card" style="transition-delay:.00s">
-        <div class="team-avatar"><img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=200&h=200&fit=crop&auto=format" alt="Carlos B." style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="team-card" data-member="0" style="transition-delay:.00s">
+        <div class="team-avatar">
+          <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&h=500&fit=crop&auto=format" alt="Carlos B.">
+        </div>
         <div class="team-info">
           <div class="team-name">Carlos B.</div>
           <div class="team-role">CEO &amp; Fundador</div>
+          <div class="team-socials">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
       </div>
-      <div class="team-card" style="transition-delay:.10s">
-        <div class="team-avatar"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&h=200&fit=crop&auto=format" alt="Ana P." style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="team-card" data-member="1" style="transition-delay:.12s">
+        <div class="team-avatar">
+          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=400&h=500&fit=crop&auto=format" alt="Ana P.">
+        </div>
         <div class="team-info">
           <div class="team-name">Ana P.</div>
           <div class="team-role">Gestora de Loja</div>
+          <div class="team-socials">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
       </div>
-      <div class="team-card" style="transition-delay:.20s">
-        <div class="team-avatar"><img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=200&h=200&fit=crop&auto=format" alt="Mário F." style="width:100%;height:100%;object-fit:cover;"></div>
+      <div class="team-card" data-member="2" style="transition-delay:.24s">
+        <div class="team-avatar">
+          <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&h=500&fit=crop&auto=format" alt="Mário F.">
+        </div>
         <div class="team-info">
           <div class="team-name">Mário F.</div>
           <div class="team-role">Técnico Sénior</div>
-        </div>
-      </div>
-      <div class="team-card" style="transition-delay:.30s">
-        <div class="team-avatar"><img src="https://images.unsplash.com/photo-1523824921871-d6f1a15151f1?w=200&h=200&fit=crop&auto=format" alt="Sofia T." style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="team-info">
-          <div class="team-name">Sofia T.</div>
-          <div class="team-role">Marketing Digital</div>
+          <div class="team-socials">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -1035,7 +271,7 @@
           </div>
           <div class="contact-info-item">
             <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
-            <div class="ci-text"><strong>WhatsApp</strong><span>+244 9XX XXX XXX</span></div>
+            <div class="ci-text"><strong>WhatsApp</strong><span>+244 926 777 502</span></div>
           </div>
         </div>
       </div>
@@ -1061,268 +297,99 @@
   </div>
 </section>
 
+<!-- ── MODAL DA EQUIPA ── -->
+<div class="team-modal-overlay" id="teamModalOverlay">
+  <div class="team-modal" id="teamModal">
+    <button class="tm-close" id="tmClose"><i class="fas fa-times"></i></button>
+    <div class="tm-photo"><img id="tmPhoto" src="" alt=""></div>
+    <div class="tm-body">
+      <div class="tm-role" id="tmRole"></div>
+      <div class="tm-name" id="tmName"></div>
+      <p class="tm-bio" id="tmBio"></p>
+      <div class="tm-socials">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
 
-<script>
-/**
- * BUCAPE-TECH — Transição de Cortina Global (inline)
- */
-(function () {
-  'use strict';
+<!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Column 1: Company Info -->
+                <div class="footer-column">
+                    <h4>BICAPE-TECH</h4>
+                    <p>Líder em tecnologia de áudio premium. Produtos de alta qualidade com garantia e suporte excepcional.</p>
+                    <div class="footer-info">
+                        <p><strong>Endereço:</strong>Angola,Luanda</p>
+                        <p><strong>Horário:</strong> Seg-Sex: 9h-18h</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
 
-  const EASE        = 'cubic-bezier(0.77,0,0.18,1)';
-  const SESSION_KEY = 'bt-internal-nav';
-  const RELOAD_KEY  = 'bt-reload';
+                <!-- Column 2: Pages -->
+                <div class="footer-column">
+                    <h4>PÁGINAS</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#products">Loja</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
 
-  const T = {
-    exitClose:    700,
-    exitNavigate: 750,
-    enterOpen:    900,
-    enterLogo:    400,
-    enterDone:    950,
-  };
+                <!-- Column 3: Quick Links -->
+                <div class="footer-column">
+                    <h4>LINKS RÁPIDOS</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Rastreamento de Pedido</a></li>
+                        <li><a href="#">Devoluções</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Serviço</a></li>
+                        <li><a href="#">Garantia</a></li>
+                    </ul>
+                </div>
 
-  const style = document.createElement('style');
-  style.textContent = `
-    #bt-curtain-left,
-    #bt-curtain-right {
-      position: fixed;
-      top: 0; bottom: 0;
-      width: 51%;
-      background: #1a56db;
-      z-index: 99999;
-      pointer-events: none;
-    }
-    #bt-curtain-left  { left: 0;  transform: translateX(-101%); }
-    #bt-curtain-right { right: 0; transform: translateX(101%);  }
+                <!-- Column 4: Newsletter -->
+                <div class="footer-column">
+                    <h4>BOLETIM DE NOTÍCIAS</h4>
+                    <p>Receba as últimas novidades e promoções exclusivas</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Seu email" class="newsletter-input">
+                        <button class="newsletter-btn"><i class="fas fa-envelope"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    #bt-curtain-logo {
-      position: fixed;
-      inset: 0;
-      z-index: 100000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(18px, 3vw, 28px);
-      font-weight: 800;
-      letter-spacing: 3px;
-      color: #fff;
-      opacity: 0;
-      pointer-events: none;
-      user-select: none;
-    }
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <div class="payment-methods">
+                        <span>Métodos de Pagamento:</span>
+                        <span class="payment-badge">Visa</span>
+                        <span class="payment-badge">Mastercard</span>
+                        <span class="payment-badge">PayPal</span>
+                        <span class="payment-badge">Express</span>
+                    </div>
+                    <p>&copy; 2025 BUCAPE-TECH. Todos os direitos reservados. 🇦🇴</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-    body.bt-busy * { pointer-events: none !important; }
-  `;
-  document.head.appendChild(style);
+ <script src="script.js"></script>
 
-  let leftEl, rightEl, logoEl;
-
-  function removeAntiFlash() {
-    document.documentElement.style.visibility = '';
-  }
-
-  function injectCurtain() {
-    if (document.getElementById('bt-curtain-left')) return;
-    leftEl  = document.createElement('div'); leftEl.id  = 'bt-curtain-left';
-    rightEl = document.createElement('div'); rightEl.id = 'bt-curtain-right';
-    logoEl  = document.createElement('div'); logoEl.id  = 'bt-curtain-logo';
-    logoEl.textContent = 'BUCAPE-TECH';
-    document.body.appendChild(leftEl);
-    document.body.appendChild(rightEl);
-    document.body.appendChild(logoEl);
-  }
-
-  function getEls() {
-    leftEl  = leftEl  || document.getElementById('bt-curtain-left');
-    rightEl = rightEl || document.getElementById('bt-curtain-right');
-    logoEl  = logoEl  || document.getElementById('bt-curtain-logo');
-  }
-
-  function setInstant(el, transform, opacity) {
-    el.style.transition = 'none';
-    if (transform !== undefined) el.style.transform = transform;
-    if (opacity   !== undefined) el.style.opacity   = opacity;
-  }
-
-  function setAnimated(el, transform, opacity, ms) {
-    el.style.transition = `transform ${ms}ms ${EASE}, opacity ${ms}ms ease`;
-    if (transform !== undefined) el.style.transform = transform;
-    if (opacity   !== undefined) el.style.opacity   = opacity;
-  }
-
-  function playEnter() {
-    getEls();
-    document.body.classList.add('bt-busy');
-    setInstant(leftEl,  'translateX(0)', undefined);
-    setInstant(rightEl, 'translateX(0)', undefined);
-    setInstant(logoEl,  undefined,       '1');
-    void leftEl.offsetHeight;
-    removeAntiFlash();
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        setAnimated(leftEl,  'translateX(-101%)', undefined, T.enterOpen);
-        setAnimated(rightEl, 'translateX(101%)',  undefined, T.enterOpen);
-        setAnimated(logoEl,  undefined,           '0',       T.enterLogo);
-        setTimeout(() => document.body.classList.remove('bt-busy'), T.enterDone);
-      });
-    });
-  }
-
-  function playDirect() {
-    removeAntiFlash();
-  }
-
-  function playExit(href) {
-    getEls();
-    if (document.body.classList.contains('bt-busy')) return;
-    document.body.classList.add('bt-busy');
-    setInstant(leftEl,  'translateX(-101%)', undefined);
-    setInstant(rightEl, 'translateX(101%)',  undefined);
-    setInstant(logoEl,  undefined,           '0');
-    void leftEl.offsetHeight;
-    requestAnimationFrame(() => {
-      setAnimated(leftEl,  'translateX(0)', undefined, T.exitClose);
-      setAnimated(rightEl, 'translateX(0)', undefined, T.exitClose);
-      setAnimated(logoEl,  undefined,       '1',       T.exitClose * 0.4);
-      sessionStorage.setItem(SESSION_KEY, '1');
-      setTimeout(() => { window.location.href = href; }, T.exitNavigate);
-    });
-  }
-
-  function playReloadExit() {
-    getEls();
-    if (document.body.classList.contains('bt-busy')) return;
-    document.body.classList.add('bt-busy');
-    setInstant(leftEl,  'translateX(-101%)', undefined);
-    setInstant(rightEl, 'translateX(101%)',  undefined);
-    setInstant(logoEl,  undefined,           '0');
-    void leftEl.offsetHeight;
-    requestAnimationFrame(() => {
-      setAnimated(leftEl,  'translateX(0)', undefined, T.exitClose);
-      setAnimated(rightEl, 'translateX(0)', undefined, T.exitClose);
-      setAnimated(logoEl,  undefined,       '1',       T.exitClose * 0.4);
-      sessionStorage.setItem(RELOAD_KEY, '1');
-      setTimeout(() => { window.location.reload(); }, T.exitNavigate);
-    });
-  }
-
-  function isReload() {
-    const navEntry = performance.getEntriesByType('navigation')[0];
-    if (navEntry) return navEntry.type === 'reload';
-    return performance.navigation && performance.navigation.type === 1;
-  }
-
-  function isInternalLink(href) {
-    if (!href || href.startsWith('#') || href.startsWith('mailto:') ||
-        href.startsWith('tel:') || href.startsWith('javascript:')) return false;
-    try {
-      const url = new URL(href, window.location.href);
-      return url.origin === window.location.origin &&
-             url.pathname + url.search !== window.location.pathname + window.location.search;
-    } catch { return false; }
-  }
-
-  function attachLinkListeners() {
-    document.addEventListener('click', function (e) {
-      const link = e.target.closest('a[href]');
-      if (!link) return;
-      const href = link.getAttribute('href');
-      if (!isInternalLink(href)) return;
-      if (link.target === '_blank' || e.ctrlKey || e.metaKey || e.shiftKey) return;
-      e.preventDefault();
-      playExit(link.href);
-    });
-
-    document.addEventListener('keydown', function (e) {
-      const isF5    = e.key === 'F5';
-      const isCtrlR = (e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'r';
-      if (!isF5 && !isCtrlR) return;
-      if (document.body.classList.contains('bt-busy')) return;
-      e.preventDefault();
-      playReloadExit();
-    });
-  }
-
-  function init() {
-    injectCurtain();
-    attachLinkListeners();
-    const fromInternal = sessionStorage.getItem(SESSION_KEY);
-    const fromReload   = sessionStorage.getItem(RELOAD_KEY);
-    sessionStorage.removeItem(SESSION_KEY);
-    sessionStorage.removeItem(RELOAD_KEY);
-    if (fromInternal || fromReload || isReload()) {
-      playEnter();
-    } else {
-      playDirect();
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-
-  window.addEventListener('pageshow', function (e) {
-    if (e.persisted) {
-      document.body.classList.remove('bt-busy');
-      playEnter();
-    }
-  });
-
-})();
-</script>
-
-<script>
-/* ── CONTADORES ── */
-(function() {
-  const counters = document.querySelectorAll('[data-target]');
-  const started  = new Set();
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting || started.has(e.target)) return;
-      started.add(e.target);
-      const el = e.target;
-      const target   = parseInt(el.dataset.target);
-      const suffix   = el.dataset.suffix || '';
-      const duration = 1600;
-      const t0 = performance.now();
-      (function tick(now) {
-        const t = Math.min((now - t0) / duration, 1);
-        const ease = t < .5 ? 2*t*t : -1+(4-2*t)*t;
-        el.textContent = Math.round(ease * target).toLocaleString('pt') + (t >= 1 ? suffix : '');
-        if (t < 1) requestAnimationFrame(tick);
-      })(t0);
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(el => io.observe(el));
-})();
-
-/* ── SCROLL REVEAL ── */
-(function() {
-  const sel = '.reveal, .value-card, .team-card, .contact-form-box';
-  const io  = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.13 });
-  document.querySelectorAll(sel).forEach(el => io.observe(el));
-})();
-
-/* ── TILT 3D subtil no hover ── */
-(function() {
-  document.querySelectorAll('.value-card, .team-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      if (!card.classList.contains('is-visible')) return;
-      const r  = card.getBoundingClientRect();
-      const dx = (e.clientX - r.left  - r.width /2) / (r.width /2);
-      const dy = (e.clientY - r.top   - r.height/2) / (r.height/2);
-      card.style.transform = `translateY(-6px) rotateX(${-dy*5}deg) rotateY(${dx*5}deg)`;
-    });
-    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
-  });
-})();
-</script>
 </body>
 </html>

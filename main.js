@@ -204,6 +204,7 @@ let cart = [];
 const cartCountElement = document.querySelector('.cart-count');
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
 const blogGrid = document.getElementById('blogGrid');
 
 // ========== INICIALIZAÇÃO ==========
@@ -239,14 +240,20 @@ function toggleSidebar() {
 
 /* --- Mobile menu --- */
 function toggleMobileMenu() {
-    mobileMenu.classList.toggle('active');
-    menuToggle.querySelector('i').classList.toggle('fa-bars');
-    menuToggle.querySelector('i').classList.toggle('fa-times');
+    const isOpen = mobileMenu.classList.contains('active');
+    isOpen ? closeMobileMenu() : openMobileMenu();
+}
+function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    mobileMenuOverlay.classList.add('active');
+    menuToggle.querySelector('i').classList.replace('fa-bars', 'fa-times');
+    document.body.style.overflow = 'hidden';
 }
 function closeMobileMenu() {
     mobileMenu.classList.remove('active');
-    menuToggle.querySelector('i').classList.add('fa-bars');
-    menuToggle.querySelector('i').classList.remove('fa-times');
+    mobileMenuOverlay.classList.remove('active');
+    menuToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+    document.body.style.overflow = '';
 }
 
 function setupEventListeners() {
@@ -259,6 +266,11 @@ function setupEventListeners() {
     /* Fechar sidebar */
     if (sidebarClose)   sidebarClose.addEventListener('click', closeSidebar);
     if (sidebarOverlay) sidebarOverlay.addEventListener('click', closeSidebar);
+
+    /* Botão de fechar e overlay do mobile menu */
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    if (mobileMenuClose)   mobileMenuClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
     /* Fechar ao pressionar Escape */
     document.addEventListener('keydown', (e) => {
@@ -324,13 +336,6 @@ function setupEventListeners() {
             }, 350);
         });
     }
-
-    /* Fechar mobile menu ao clicar fora */
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.header') && mobileMenu.classList.contains('active')) {
-            closeMobileMenu();
-        }
-    });
 
     /* Smooth scroll global */
     document.querySelectorAll('a[href^="#"]').forEach(link => {

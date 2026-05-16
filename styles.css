@@ -350,37 +350,88 @@ p {
 
 /* ========== MOBILE MENU ========== */
 .mobile-menu {
-    display: none;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: var(--background);
-    border-top: 1px solid var(--border);
-    padding: 1rem;
+    z-index: 9998;
+    padding: 5rem 1.5rem 2rem;
+    overflow-y: auto;
+    transform: translateY(-100%);
+    transition: transform 0.35s cubic-bezier(0.77, 0, 0.18, 1),
+                visibility 0.35s;
 }
 
 .mobile-menu.active {
-    display: block;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .mobile-nav-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.25rem;
 }
 
 .mobile-nav-link {
     display: block;
-    padding: 0.75rem;
-    font-size: 0.875rem;
-    font-weight: 600;
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     color: var(--foreground);
     text-decoration: none;
+    border-bottom: 1px solid var(--border);
     transition: var(--transition);
 }
 
 .mobile-nav-link:hover {
     color: var(--primary);
+    padding-left: 1.25rem;
+}
+
+/* Botão de fechar dentro do menu mobile */
+.mobile-menu-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--foreground);
+    cursor: pointer;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+.mobile-menu-close:hover {
+    background: var(--border);
+    color: var(--primary);
+}
+
+/* Overlay para fechar ao clicar fora */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 9997;
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
 }
 
 /* ========== HERO SECTION ========== */
