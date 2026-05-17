@@ -83,20 +83,21 @@
             border-radius: 30px;
             transition: color .2s;
             white-space: nowrap;
-        }
-        .nav-links a:hover { color: var(--blue); }
-        .nav-links a.active {
-            color: var(--blue);
             position: relative;
         }
-        .nav-links a.active::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -2px; left: 50%; transform: translateX(-50%);
-            width: 24px; height: 3px;
+            bottom: -2px; left: 0;
+            width: 0; height: 3px;
             background: var(--blue);
             border-radius: 2px;
+            transition: width .25s ease;
         }
+        .nav-links a:hover { color: var(--blue); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--blue); }
+        .nav-links a.active::after { width: 100%; }
 
         /* Nav icons */
         .nav-icons { display: flex; align-items: center; gap: 1.5rem; flex-shrink: 0; margin-left: auto; }
