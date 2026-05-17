@@ -1438,6 +1438,12 @@ const pcs = [
     }
 ];
 
+// Pré-carrega todas as imagens do hero imediatamente
+pcs.forEach(pc => {
+    const img = new Image();
+    img.src = pc.img;
+});
+
 let heroCur = 0, heroAnimating = false;
 
 function heroRender(pc, animate) {
