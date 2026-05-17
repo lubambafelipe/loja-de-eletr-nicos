@@ -1395,7 +1395,7 @@ const pcs = [
     {
         name: 'Legion Pro 7i', badge: 'Intel Core', type: 'intel',
         subtitle: 'Desempenho extremo para gaming e criação de conteúdo profissional.',
-        img: 'Nova pasta/baixados__8_-removebg-preview.png',
+        img: 'img/baixados__8_-removebg-preview.png',
         specs: [
             { label:'CPU', val:'Intel Core i9-14900HX' },
             { label:'GPU', val:'NVIDIA RTX 4080' },
@@ -1406,7 +1406,7 @@ const pcs = [
     {
         name: 'ROG Strix G16', badge: 'AMD Ryzen', type: 'ryzen',
         subtitle: 'Poder AMD com gráficos de última geração para dominar qualquer jogo.',
-        img: 'Nova pasta/2026_AMD_Ryzen_7_Gaming_Laptop___16GB_RAM___512GB_SSD___WiFi_6-removebg-preview.png',
+        img: 'img/2026_AMD_Ryzen_7_Gaming_Laptop___16GB_RAM___512GB_SSD___WiFi_6-removebg-preview.png',
         specs: [
             { label:'CPU', val:'AMD Ryzen 9 7945HX' },
             { label:'GPU', val:'AMD Radeon RX 7900M' },
@@ -1417,7 +1417,7 @@ const pcs = [
     {
         name: 'Razer Blade 18', badge: 'NVIDIA RTX', type: 'nvidia',
         subtitle: 'Workstation portátil com RTX 4090 para criadores e gamers de elite.',
-        img: 'Nova pasta/lenovo-loq.png',
+        img: 'img/lenovo-loq.png',
         specs: [
             { label:'CPU', val:'Intel Core i9-14900HX' },
             { label:'GPU', val:'NVIDIA RTX 4090 16GB' },
@@ -1428,7 +1428,7 @@ const pcs = [
     {
         name: 'HP Omen Transcend', badge: 'Intel Core Ultra', type: 'intel',
         subtitle: 'Eficiência e velocidade de última geração num design premium e fino.',
-        img: 'Nova pasta/ASUS_-_ROG_Strix_G17_17_3__Laptop_-_AMD_Ryzen_9_-_16GB_Memory_-_NVIDIA_GeForce_RTX_3060_-_512GB_SSD_-_Eclipse_Gray-removebg-preview.png',
+        img: 'img/ASUS_-_ROG_Strix_G17_17_3__Laptop_-_AMD_Ryzen_9_-_16GB_Memory_-_NVIDIA_GeForce_RTX_3060_-_512GB_SSD_-_Eclipse_Gray-removebg-preview.png',
         specs: [
             { label:'CPU', val:'Intel Core Ultra 9 185H' },
             { label:'GPU', val:'NVIDIA RTX 4070' },
