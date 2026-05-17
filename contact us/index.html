@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script>document.documentElement.style.visibility='hidden';</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us — BUCAPE-TECH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../styles.css">
+         
+ 
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="wrap">
+        <a href="../index.html" class="topbar-logo">BUCAPE-TECH</a>
+        <div class="topbar-links">
+            <a href="#"><i class="fab fa-facebook" style="margin-right:5px;"></i>Facebook</a>
+            <a href="#"><i class="fab fa-twitter" style="margin-right:5px;"></i>Twitter</a>
+            <a href="#"><i class="fab fa-instagram" style="margin-right:5px;"></i>Instagram</a>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="wrap">
+        <nav class="nav-pill">
+            <button class="nav-hamburger" id="menuToggle" title="Menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">LAR</a></li>
+                <li><a href="../about us/index.html">SOBRE NÓS</a></li>
+                <li><a href="../comprar/index.html">COMPRAR</a></li>
+                <li><a href="../paginas/index.html">PÁGINAS</a></li>
+                <li><a href="#" class="active">CONTATE-NOS</a></li>
+            </ul>
+            <div class="nav-icons">
+                <button class="nav-icon-btn" title="Pesquisar"><i class="fas fa-search"></i></button>
+                <button class="nav-icon-btn" title="Carrinho" style="position:relative;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+    <ul class="mobile-nav-list">
+        <li><a href="../index.html" class="mobile-nav-link">LAR</a></li>
+        <li><a href="../about us/index.html" class="mobile-nav-link">SOBRE NÓS</a></li>
+        <li><a href="../comprar/index.html" class="mobile-nav-link">COMPRAR</a></li>
+        <li><a href="../paginas/index.html" class="mobile-nav-link">PÁGINAS</a></li>
+        <li><a href="#" class="mobile-nav-link">CONTATE-NOS</a></li>
+    </ul>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <a href="../index.html">Início</a>
+    <span>›</span>
+    <strong>Contate-nos</strong>
+</div>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+
+    <!-- LEFT -->
+    <div class="contact-left">
+        <h1>Contact Us</h1>
+        <p>Are you looking for top-quality chemical solutions tailored to your needs? Reach out to US.</p>
+
+        <!-- Inline SVG illustration — customer support agent at desk -->
+        <img src="img/1-removebg-preview.png" alt="Contacto" class="contact-illustration">
+    </div>
+
+    <!-- RIGHT — FORM -->
+    <div class="contact-card">
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="nameInput">Name</label>
+                <input type="text" id="nameInput" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="emailInput">Email</label>
+                <input type="email" id="emailInput" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="messageInput">Message</label>
+                <textarea id="messageInput" name="message" placeholder="type your message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>BUCAPE-TECH</h4>
+                <p>Líder em tecnologia premium. Produtos de alta qualidade com garantia e suporte excepcional.</p>
+                <div class="footer-info">
+                    <p><strong>Endereço:</strong> Angola, Luanda</p>
+                    <p><strong>Horário:</strong> Seg–Sex: 9h–18h</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>PÁGINAS</h4>
+                <ul class="footer-links">
+                    <li><a href="../about us/index.html">Sobre Nós</a></li>
+                    <li><a href="../comprar/index.html">Loja</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>LINKS RÁPIDOS</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Rastreamento de Pedido</a></li>
+                    <li><a href="#">Devoluções</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Garantia</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>BOLETIM DE NOTÍCIAS</h4>
+                <p>Receba as últimas novidades e promoções exclusivas</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Seu email" class="newsletter-input">
+                    <button class="newsletter-btn"><i class="fas fa-envelope"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <div class="payment-methods">
+                <span>Métodos de Pagamento:</span>
+                <span class="payment-badge">Visa</span>
+                <span class="payment-badge">Mastercard</span>
+                <span class="payment-badge">PayPal</span>
+                <span class="payment-badge">Express</span>
+            </div>
+            <p>&copy; 2026 BUCAPE-TECH. Todos os direitos reservados. 🇦🇴</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/+244926777502" class="whatsapp-float" target="_blank" rel="noopener" title="Fale connosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="../page-transition.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

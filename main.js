@@ -179,21 +179,21 @@ const blogPosts = [
     {
         id: 1,
         title: 'Como Escolher o Melhor Fone de Ouvido',
-        date: '15 de Maio de 2025',
+        date: '15 de Maio de 2026',
         image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop&auto=format',
         excerpt: 'Dicas essenciais para escolher o fone perfeito para as suas necessidades e estilo de vida.'
     },
     {
         id: 2,
         title: 'Tecnologia de Cancelamento de Ruído Explicada',
-        date: '10 de Maio de 2025',
+        date: '10 de Maio de 2026',
         image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600&h=400&fit=crop&auto=format',
         excerpt: 'Entenda como funciona a tecnologia ANC e por que ela é importante para a sua experiência.'
     },
     {
         id: 3,
         title: 'Manutenção e Cuidados com Fones Premium',
-        date: '5 de Maio de 2025',
+        date: '5 de Maio de 2026',
         image: 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&h=400&fit=crop&auto=format',
         excerpt: 'Guia completo para manter os seus fones em perfeito estado por mais tempo.'
     }

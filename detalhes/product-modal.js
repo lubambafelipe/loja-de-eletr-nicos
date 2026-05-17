@@ -41,8 +41,8 @@
         'https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?w=600&h=600&fit=crop',
       ],
       userReviews: [
-        { name: 'Carlos M.', rating: 5, date: 'Abr 2025', text: 'Qualidade incrível para o preço. Graves poderosos e muito confortáveis.' },
-        { name: 'Ana S.', rating: 4, date: 'Mar 2025', text: 'Bom fone, microfone funciona bem. Cable poderia ser mais resistente.' },
+        { name: 'Carlos M.', rating: 5, date: 'Abr 2026', text: 'Qualidade incrível para o preço. Graves poderosos e muito confortáveis.' },
+        { name: 'Ana S.', rating: 4, date: 'Mar 2026', text: 'Bom fone, microfone funciona bem. Cable poderia ser mais resistente.' },
       ],
     },
     2: {
@@ -66,8 +66,8 @@
         'https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=600&h=600&fit=crop',
       ],
       userReviews: [
-        { name: 'Pedro A.', rating: 4, date: 'Mai 2025', text: 'Excelentes earbuds. Som limpo, conexão estável. Estojo muito prático.' },
-        { name: 'Luana F.', rating: 4, date: 'Abr 2025', text: 'Bom produto pelo preço. Só queria mais opções de tamanho dos gominhos.' },
+        { name: 'Pedro A.', rating: 4, date: 'Mai 2026', text: 'Excelentes earbuds. Som limpo, conexão estável. Estojo muito prático.' },
+        { name: 'Luana F.', rating: 4, date: 'Abr 2026', text: 'Bom produto pelo preço. Só queria mais opções de tamanho dos gominhos.' },
       ],
     },
     3: {
@@ -91,8 +91,8 @@
         'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=600&fit=crop',
       ],
       userReviews: [
-        { name: 'Miguel R.', rating: 5, date: 'Mai 2025', text: 'Melhor compra que já fiz. Som excepcional e bateria que dura o dia todo.' },
-        { name: 'Sofia P.', rating: 4, date: 'Abr 2025', text: 'Muito bom! Confortável para uso prolongado. Ligação estável.' },
+        { name: 'Miguel R.', rating: 5, date: 'Mai 2026', text: 'Melhor compra que já fiz. Som excepcional e bateria que dura o dia todo.' },
+        { name: 'Sofia P.', rating: 4, date: 'Abr 2026', text: 'Muito bom! Confortável para uso prolongado. Ligação estável.' },
       ],
     },
     4: {

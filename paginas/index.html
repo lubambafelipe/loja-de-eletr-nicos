@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <script>document.documentElement.style.visibility='hidden';</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — BUCAPE-TECH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div class="wrap">
+        <a href="../index.html" class="topbar-logo">BUCAPE-TECH</a>
+        <div class="topbar-links">
+            <a href="#" class="topbar-link"><i class="fab fa-facebook" style="margin-right:5px;"></i>Facebook</a>
+            <a href="#" class="topbar-link"><i class="fab fa-twitter" style="margin-right:5px;"></i>Twitter</a>
+            <a href="#" class="topbar-link"><i class="fab fa-instagram" style="margin-right:5px;"></i>Instagram</a>
+        </div>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="wrap">
+        <nav class="nav-pill">
+            <button class="nav-hamburger" id="menuToggle" title="Menu"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="../index.html">LAR</a></li>
+                <li><a href="../about us/index.html">SOBRE NÓS</a></li>
+                <li><a href="../comprar/index.html">COMPRAR</a></li>
+                <li><a href="#" class="active">PÁGINAS</a></li>
+                <li><a href="../contact us/index.html">CONTATE-NOS</a></li>
+            </ul>
+            <div class="nav-icons">
+                <button class="nav-icon-btn" title="Pesquisar"><i class="fas fa-search"></i></button>
+                <button class="nav-icon-btn" title="Carrinho" style="position:relative;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+    <ul class="mobile-nav-list">
+        <li><a href="../index.html" class="mobile-nav-link">LAR</a></li>
+        <li><a href="../about us/index.html" class="mobile-nav-link">SOBRE NÓS</a></li>
+        <li><a href="../comprar/index.html" class="mobile-nav-link">COMPRAR</a></li>
+        <li><a href="#" class="mobile-nav-link">PÁGINAS</a></li>
+        <li><a href="../contact/index.html" class="mobile-nav-link">CONTATE-NOS</a></li>
+    </ul>
+</div>
+
+<!-- HERO COM BREADCRUMB INTEGRADO -->
+<div class="blog-hero">
+    <div class="hero-inner">
+        <!-- Breadcrumb dentro do hero -->
+        <div class="breadcrumb" style="justify-content:center; padding:0; margin-bottom:20px; font-size:.75rem;">
+            <a href="../index.html" style="color:rgba(255,255,255,.7);">Início</a>
+            <i class="fas fa-chevron-right" style="font-size:.55rem; color:rgba(255,255,255,.35);"></i>
+            <strong style="color:#fff;">Blog</strong>
+        </div>
+
+        
+        <h1>Blog & <span>Artigos</span></h1>
+        <p>Fique por dentro das últimas novidades em tecnologia, reviews e dicas para tirar o máximo dos seus dispositivos.</p>
+        <div class="blog-search-wrap">
+            <input type="text" id="blogSearch" placeholder="Pesquisar artigos…">
+            <button onclick="filterPosts()"><i class="fas fa-search" style="margin-right:7px;"></i>Pesquisar</button>
+        </div>
+    </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="categories-bar">
+    <button class="cat-tag active" data-cat="all">Todos</button>
+    <button class="cat-tag" data-cat="hardware">Hardware</button>
+    <button class="cat-tag" data-cat="audio">Áudio</button>
+    <button class="cat-tag" data-cat="gaming">Gaming</button>
+    <button class="cat-tag" data-cat="dicas">Dicas & Tutoriais</button>
+    <button class="cat-tag" data-cat="reviews">Reviews</button>
+</div>
+
+<!-- MAIN -->
+<div class="blog-layout">
+
+    <!-- POSTS AREA -->
+    <div>
+        <!-- FEATURED -->
+        <article class="featured-post" data-cat="hardware">
+            <img class="post-img" src="https://images.unsplash.com/photo-1591488320449-011701bb6704?w=800&h=600&fit=crop" alt="RTX 4060">
+            <div class="post-body">
+                <span class="featured-badge"><i class="fas fa-star" style="font-size:.62rem;"></i>DESTAQUE</span>
+                <p class="post-category">Hardware</p>
+                <h2 class="post-title">RTX 4060: Vale a pena em 2025? Análise completa</h2>
+                <p class="post-excerpt">A NVIDIA RTX 4060 continua a ser uma das melhores opções para gamers de média gama. Testámos a placa em mais de 15 jogos e temos todos os resultados para si.</p>
+                <div class="post-meta">
+                    <span><i class="fas fa-user"></i> Mário F.</span>
+                    <span><i class="fas fa-calendar"></i> 10 Mai 2025</span>
+                    <span><i class="fas fa-clock"></i> 8 min</span>
+                </div>
+                <a href="#" class="read-more">Ler artigo <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </article>
+
+        <!-- POSTS GRID -->
+        <div class="posts-grid" id="postsGrid">
+
+            <article class="post-card" data-cat="audio">
+                <div class="post-card-img-wrap">
+                    <img class="post-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=340&fit=crop" alt="Headphones">
+                </div>
+                <div class="post-body">
+                    <p class="post-category">Áudio</p>
+                    <h3 class="post-title">Os 5 melhores headsets para trabalho remoto</h3>
+                    <p class="post-excerpt">Conforto, qualidade de microfone e cancelamento de ruído — os critérios que usámos para esta lista.</p>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user"></i> Ana P.</span>
+                        <span><i class="fas fa-clock"></i> 5 min</span>
+                    </div>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="post-card" data-cat="gaming">
+                <div class="post-card-img-wrap">
+                    <img class="post-img" src="https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=600&h=340&fit=crop" alt="Teclado gaming">
+                </div>
+                <div class="post-body">
+                    <p class="post-category">Gaming</p>
+                    <h3 class="post-title">Teclado mecânico vs membrana: qual escolher?</h3>
+                    <p class="post-excerpt">Comparamos as principais diferenças de tactilidade, durabilidade e preço para ajudá-lo a decidir.</p>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user"></i> Carlos B.</span>
+                        <span><i class="fas fa-clock"></i> 6 min</span>
+                    </div>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="post-card" data-cat="dicas">
+                <div class="post-card-img-wrap">
+                    <img class="post-img" src="https://images.unsplash.com/photo-1597852074816-d933c7d2b988?w=600&h=340&fit=crop" alt="SSD">
+                </div>
+                <div class="post-body">
+                    <p class="post-category">Dicas & Tutoriais</p>
+                    <h3 class="post-title">Como migrar o Windows para um SSD NVMe</h3>
+                    <p class="post-excerpt">Passo a passo completo para transferir o seu sistema operativo sem perder dados e sem reinstalar nada.</p>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user"></i> Mário F.</span>
+                        <span><i class="fas fa-clock"></i> 10 min</span>
+                    </div>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="post-card" data-cat="reviews">
+                <div class="post-card-img-wrap">
+                    <img class="post-img" src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&h=340&fit=crop" alt="Monitor">
+                </div>
+                <div class="post-body">
+                    <p class="post-category">Reviews</p>
+                    <h3 class="post-title">Review: Monitor curvo 27" — vale o investimento?</h3>
+                    <p class="post-excerpt">Testámos durante 30 dias. Aqui está tudo o que precisa de saber antes de comprar.</p>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user"></i> Ana P.</span>
+                        <span><i class="fas fa-clock"></i> 7 min</span>
+                    </div>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="post-card" data-cat="gaming">
+                <div class="post-card-img-wrap">
+                    <img class="post-img" src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600&h=340&fit=crop" alt="Mouse gaming">
+                </div>
+                <div class="post-body">
+                    <p class="post-category">Gaming</p>
+                    <h3 class="post-title">Mouse gaming: DPI alto é sempre melhor?</h3>
+                    <p class="post-excerpt">Desmistificamos um dos maiores mitos do gaming e explicamos o que realmente importa.</p>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user"></i> Carlos B.</span>
+                        <span><i class="fas fa-clock"></i> 4 min</span>
+                    </div>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="post-card" data-cat="audio">
+                <div class="post-card-img-wrap">
+                    <img class="post-img" src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=600&h=340&fit=crop" alt="TWS earbuds">
+                </div>
+                <div class="post-body">
+                    <p class="post-category">Áudio</p>
+                    <h3 class="post-title">TWS com cancelamento de ruído: guia de compra 2025</h3>
+                    <p class="post-excerpt">Os earbuds sem fio evoluíram muito. Testamos os modelos disponíveis na nossa loja e classificamos cada um.</p>
+                    <div class="post-meta">
+                        <span><i class="fas fa-user"></i> Mário F.</span>
+                        <span><i class="fas fa-clock"></i> 6 min</span>
+                    </div>
+                    <a href="#" class="read-more">Ler mais <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div id="emptyState" style="display:none; text-align:center; padding:60px 20px; color:var(--muted);">
+            <i class="fas fa-search" style="font-size:2.5rem; color:var(--border); display:block; margin-bottom:14px;"></i>
+            <p>Nenhum artigo encontrado.</p>
+        </div>
+
+        <!-- PAGINATION -->
+        <div class="pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <!-- Popular -->
+        <div class="sidebar-widget">
+            <p class="widget-title">Artigos Populares</p>
+            <a href="#" class="popular-item">
+                <span class="popular-num">01</span>
+                <div class="popular-info">
+                    <p class="popular-title">RTX 4060: Vale a pena em 2025?</p>
+                    <span class="popular-date"><i class="fas fa-calendar" style="margin-right:4px;"></i>10 Mai 2025</span>
+                </div>
+            </a>
+            <a href="#" class="popular-item">
+                <span class="popular-num">02</span>
+                <div class="popular-info">
+                    <p class="popular-title">Como migrar o Windows para SSD NVMe</p>
+                    <span class="popular-date"><i class="fas fa-calendar" style="margin-right:4px;"></i>02 Mai 2025</span>
+                </div>
+            </a>
+            <a href="#" class="popular-item">
+                <span class="popular-num">03</span>
+                <div class="popular-info">
+                    <p class="popular-title">Os 5 melhores headsets para trabalho remoto</p>
+                    <span class="popular-date"><i class="fas fa-calendar" style="margin-right:4px;"></i>24 Abr 2025</span>
+                </div>
+            </a>
+            <a href="#" class="popular-item">
+                <span class="popular-num">04</span>
+                <div class="popular-info">
+                    <p class="popular-title">Review: Monitor curvo 27"</p>
+                    <span class="popular-date"><i class="fas fa-calendar" style="margin-right:4px;"></i>15 Abr 2025</span>
+                </div>
+            </a>
+        </div>
+
+        <!-- Tags -->
+        <div class="sidebar-widget">
+            <p class="widget-title">Tags</p>
+            <div class="tags-cloud">
+                <a href="#" class="tag-pill">Hardware</a>
+                <a href="#" class="tag-pill">SSD</a>
+                <a href="#" class="tag-pill">Gaming</a>
+                <a href="#" class="tag-pill">Áudio</a>
+                <a href="#" class="tag-pill">Monitor</a>
+                <a href="#" class="tag-pill">Teclado</a>
+                <a href="#" class="tag-pill">Mouse</a>
+                <a href="#" class="tag-pill">TWS</a>
+                <a href="#" class="tag-pill">GPU</a>
+                <a href="#" class="tag-pill">Dicas</a>
+                <a href="#" class="tag-pill">Review</a>
+                <a href="#" class="tag-pill">USB-C</a>
+            </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="sidebar-widget widget-newsletter">
+            <p class="widget-title">Newsletter</p>
+            <p>Receba os novos artigos directamente no seu email, sem spam.</p>
+            <input type="email" placeholder="O seu email">
+            <button>Subscrever <i class="fas fa-paper-plane" style="margin-left:6px;"></i></button>
+        </div>
+
+    </aside>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>BUCAPE-TECH</h4>
+                <p>Líder em tecnologia premium. Produtos de alta qualidade com garantia e suporte excepcional.</p>
+                <div class="footer-info">
+                    <p><strong>Endereço:</strong> Angola, Luanda</p>
+                    <p><strong>Horário:</strong> Seg–Sex: 9h–18h</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>PÁGINAS</h4>
+                <ul class="footer-links">
+                    <li><a href="../about us/index.html">Sobre Nós</a></li>
+                    <li><a href="../comprar/index.html">Loja</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="../contact/index.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>LINKS RÁPIDOS</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Rastreamento de Pedido</a></li>
+                    <li><a href="#">Devoluções</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Garantia</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>BOLETIM DE NOTÍCIAS</h4>
+                <p>Receba as últimas novidades e promoções exclusivas</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Seu email" class="newsletter-input">
+                    <button class="newsletter-btn"><i class="fas fa-envelope"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-bottom-content">
+            <div class="payment-methods">
+                <span>Métodos de Pagamento:</span>
+                <span class="payment-badge">Visa</span>
+                <span class="payment-badge">Mastercard</span>
+                <span class="payment-badge">PayPal</span>
+                <span class="payment-badge">Express</span>
+            </div>
+            <p>&copy; 2026 BUCAPE-TECH. Todos os direitos reservados. 🇦🇴</p>
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/+244926777502" class="whatsapp-float" target="_blank" rel="noopener" title="Fale connosco no WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="../page-transition.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
