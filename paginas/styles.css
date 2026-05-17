@@ -29,12 +29,10 @@ body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--te
 .nav-hamburger { background: none; border: none; cursor: pointer; color: var(--text); font-size: 1.1rem; padding: 8px 12px 8px 4px; display: flex; align-items: center; }
 .nav-hamburger:hover { color: var(--blue); }
 .nav-links { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; list-style: none; }
-.nav-links a { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .82rem; letter-spacing: .06em; color: var(--text); text-decoration: none; padding: 8px 14px; border-radius: 30px; transition: color .2s; white-space: nowrap; position: relative; }
-.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 3px; background: var(--blue); border-radius: 2px; transition: width .25s ease; }
-.nav-links a:hover { color: var(--blue); }
-.nav-links a:hover::after { width: 100%; }
+.nav-links a { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .82rem; letter-spacing: .06em; color: var(--text); text-decoration: none; padding: 8px 14px; border-radius: 30px; transition: color .2s, background .2s; white-space: nowrap; }
+.nav-links a:hover { color: var(--blue); background: #eff6ff; }
 .nav-links a.active { color: var(--blue); }
-.nav-links a.active::after { width: 100%; }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%); width: 24px; height: 3px; background: var(--blue); border-radius: 2px; }
 .nav-icons { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; }
 .nav-icon-btn { background: none; border: none; cursor: pointer; color: var(--text); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: color .2s; position: relative; }
 .nav-icon-btn:hover { color: var(--blue); }
